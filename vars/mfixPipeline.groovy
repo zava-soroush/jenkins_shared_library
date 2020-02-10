@@ -1,9 +1,8 @@
 def call(def job) {
 
-    node {
+    node('master') {
        
-        // inside this block your credentials will be available as env variables
-        wrap {
+      
             try {
                 // Clone exa repository, checkout develop branch
                 stage('Clone') {
@@ -30,6 +29,6 @@ def call(def job) {
                 step([$class: 'WsCleanup'])
             }
 
-        }
+       
     }
 }
